@@ -1,12 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Accessible Tabs</title>
-    </head>
-    <body>
-        <div>
-            <h1>Accessible Tabs</h1>
+
+<head>
+    <title>Accessible Tabs</title>
+    <style>
+        .nav-tabs:first-child {
+            width: 290px;
+            margin: 0 auto;
+        }
+        .nav-link {
+            background: #FFFFFF;
+            outline: none;
+            border: 2px solid #19a5d5;
+            border-radius: 6px;
+            font-size: 24px;
+            color: #19a5d5;
+            margin-bottom: 10px;
+        }
+        .nav-link:hover {
+            background: #7cd1ef;
+            color: #ffffff;
+        }
+        .nav-link.active {
+            background: #19a5d5;
+            color: #ffffff;
+            border: 2px solid #19a5d5;
+            border-radius: 6px;
+        }
+        .tab-pane {
+            display: none;
+            padding: 20px;
+            font-size: 28px;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        .tab-content .tab-pane .nav-tabs .nav-link {
+            font-size: 20px;
+            border: 2px solid #ffc000;
+            color: #ffc000;
+        }
+        .tab-content .tab-pane .nav-tabs .nav-link:hover {
+            background: #f7da81;
+            color: #ffffff;
+        }
+        .tab-content .tab-pane .nav-tabs .nav-link.active {
+            background: #ffc000;
+            border: 2px solid #ffc000;
+            color: #ffffff;
+        }
+        .nav-vertical {
+            width: 100%;
+            display: inline-flex;
+        }
+        .nav-vertical .nav-tabs {
+            width: 20%;
+        }
+        .nav-vertical .tab-content {
+            width: 80%;
+            margin: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav-tabs">
+        <button class="nav-link active" id="nav-home-tab" type="button" data-target-pane="#nav-home">Home</button>
+        <button class="nav-link" id="nav-profile-tab" type="button" data-target-pane="#nav-profile">Profile</button>
+        <button class="nav-link" id="nav-contact-tab" type="button" data-target-pane="#nav-contact">Contact</button>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane active" id="nav-home">
+            <div class="nav-tabs">
+                <button class="nav-link active" id="nav-home-tab-inner" type="button" data-target-pane="#nav-home-inner">Home Inner</button>
+                <button class="nav-link" id="nav-profile-tab-inner" type="button" data-target-pane="#nav-profile-inner">Profile Inner</button>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane active" id="nav-home-inner">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                    It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                </div>
+                <div class="tab-pane" id="nav-profile-inner">
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                    The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters,
+                    as opposed to using 'Content here, content here', making it look like readable English.
+                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
+                    and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years,
+                    sometimes by accident, sometimes on purpose (injected humour and the like).
+                </div>
+            </div>
         </div>
-        <script src="./bundle.js"></script>
-    </body>
+        <div class="tab-pane" id="nav-profile">profile</div>
+        <div class="tab-pane" id="nav-contact">content</div>
+    </div>
+    <hr>
+    <div class="nav-vertical">
+        <div class="nav-tabs">
+            <button class="nav-link active" type="button" data-target-pane="#nav-home-v" data-orientation="vertical">Home</button><br>
+            <button class="nav-link" type="button" data-target-pane="#nav-profile-v" data-orientation="vertical">Profile</button><br>
+            <button class="nav-link" type="button" data-target-pane="#nav-contact-v" data-orientation="vertical">Contact</button><br>
+        </div>
+        <div class="tab-content">
+            <div class="tab-pane active" id="nav-home-v">home</div>
+            <div class="tab-pane" id="nav-profile-v">profile</div>
+            <div class="tab-pane" id="nav-contact-v">content</div>
+        </div>
+    </div>
+    
+    <script src="./bundle.js"></script>
+</body>
+
 </html>
